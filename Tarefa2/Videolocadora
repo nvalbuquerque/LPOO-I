@@ -1,0 +1,40 @@
+/* Fala uma classe executável que dados a distância percorrida (em Km) e o tempo
+gasto em uma viagem (em horas), informe a velocidade média do carro, sabendo que
+Velocidade = variação da distância / variação do tempo. Imprima o valor com duas
+casas decimais.*/
+
+import java.util.Scanner;
+
+public class Videolocadora {
+    public int quantidade;
+    public double valor;
+    public int locados;
+    public int atrasados;
+    
+    public Videolocadora(int quantidade, double valor, int locados, int atrasados) {
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.locados = locados;
+        this.atrasados = atrasados;
+    }
+    
+    public double multaAnual(double valor, int atrasados) {
+        return ((valor * (0.1)) * atrasados) * 12;
+    }
+    
+    public double faturamentoAnual(int locados, double valor, int atrasados) {
+        return ((locados * valor) + ((valor * (0.1)) * atrasados)) * 12;
+    }
+    
+    public static void main(String[] args) {
+        
+    Videolocadora locadora1 = new Videolocadora(600, 10, 200, 20);
+    
+    double multaAnual_locadora1 = locadora1.multaAnual(10, 20);
+    
+    double faturamentoAnual_locadora1 = locadora1.faturamentoAnual(200, 10, 20);
+    
+    System.out.printf("O valor da multa anual foi de R$ %.2f.%n", multaAnual_locadora1);
+    System.out.printf("O faturamento anual foi de R$ %.2f.%n", faturamentoAnual_locadora1);
+    }
+}
