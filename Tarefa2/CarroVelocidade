@@ -1,4 +1,4 @@
-/* Fala uma classe executável que dados a distância percorrida (em Km) e o tempo
+/* Faça uma classe executável que dados a distância percorrida (em Km) e o tempo
 gasto em uma viagem (em horas), informe a velocidade média do carro, sabendo que
 Velocidade = variação da distância / variação do tempo. Imprima o valor com duas
 casas decimais.*/
