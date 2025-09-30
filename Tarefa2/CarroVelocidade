@@ -1,0 +1,35 @@
+/* Fala uma classe executável que dados a distância percorrida (em Km) e o tempo
+gasto em uma viagem (em horas), informe a velocidade média do carro, sabendo que
+Velocidade = variação da distância / variação do tempo. Imprima o valor com duas
+casas decimais.*/
+
+import java.util.Scanner;
+
+public class CarroVelocidade {
+    public double distancia;
+    public double tempo; 
+    
+    public CarroVelocidade(double distancia, double tempo) {
+        this.distancia = distancia;
+        this.tempo = tempo;
+    }
+    
+    public double velocidadeMedia() {
+        return distancia / tempo;
+    }
+    
+	public static void main(String[] args) {
+	    Scanner scanner = new Scanner(System.in);
+	    
+	    System.out.println("Digite a distância percorrida (em Km):");
+	    double distancia = scanner.nextDouble();
+	    
+	    System.out.println("Digite o tempo gasto na viagem (em horas):");
+	    double tempo = scanner.nextDouble();
+	    
+	    CarroVelocidade carro = new CarroVelocidade(distancia, tempo);
+	    
+	    double velocidade = carro.velocidadeMedia();
+	    System.out.printf("A velocidade média foi de %.2f km/h.%n", velocidade);
+	}
+}
