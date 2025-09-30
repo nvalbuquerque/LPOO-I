@@ -18,8 +18,8 @@ public class Videolocadora {
         this.atrasados = atrasados;
     }
     
-    public double multaAnual(double valor, int atrasados) {
-        return ((valor * (0.1)) * atrasados) * 12;
+    public double multaMensal(double valor, int atrasados) {
+        return ((valor * (0.1)) * atrasados);
     }
     
     public double faturamentoAnual(int locados, double valor, int atrasados) {
@@ -30,11 +30,11 @@ public class Videolocadora {
         
     Videolocadora locadora1 = new Videolocadora(600, 10, 200, 20);
     
-    double multaAnual_locadora1 = locadora1.multaAnual(10, 20);
+    double multaMensal_locadora1 = locadora1.multaMensal(10, 20);
     
     double faturamentoAnual_locadora1 = locadora1.faturamentoAnual(200, 10, 20);
     
-    System.out.printf("O valor da multa anual foi de R$ %.2f.%n", multaAnual_locadora1);
+    System.out.printf("O valor da multa anual foi de R$ %.2f.%n", multaMensal_locadora1);
     System.out.printf("O faturamento anual foi de R$ %.2f.%n", faturamentoAnual_locadora1);
     }
 }
