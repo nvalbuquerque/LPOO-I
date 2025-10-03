@@ -1,0 +1,46 @@
+RASCUNHO
+
+import java.util.Scanner;
+
+public class SomaPares {
+    
+	public static void main(String[] args) {
+		int[] indice = new int[7];
+		String[] diaSemana = new String[7];
+
+		Scanner scanner = new Scanner(System.in);
+
+		for (int i = 0; i <=7; i++) {
+		    System.out.println("Digite o dia da semana:");
+			diaSemana[i] = scanner.nextLine();
+		    
+		    System.out.println("Digite o índice pluviométrico:");
+			indice[i] = scanner.nextInt();
+		}
+		
+		int soma = 0;
+		for (int j = 0; j <= 7; j++) {
+		    soma += indice;
+		}
+		
+		double media = 0;
+		double media = soma / 7;
+		
+		for (int j = 0; j <= 7; j++) {
+		    int maior = indice[0];
+		    int menor = indice[0];
+		    
+		    if (indice[i] > maior) {
+		        maior = indice[i];
+		    }
+		    
+		    if (indice[i] < menor) {
+		        menor = indice[i];
+		    }
+		}
+
+		System.out.printf("O índice pluviométrico médio foi: %.2f\n", media);
+		System.out.printf("O índice pluviométrico máximo foi: %.2f\n", maior);
+		System.out.printf("O índice pluviométrico mínimo foi: %.2f\n", media);
+	}
+}
