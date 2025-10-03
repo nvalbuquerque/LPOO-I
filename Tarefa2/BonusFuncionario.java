@@ -41,7 +41,7 @@ public class BonusFuncionario
 	    }
 	   
 	   if (erro == false) {
-	       System.out.printf("O bônus do funcionário é de R$ %2.f/n", bonus);
+	       System.out.printf("O bônus do funcionário é de R$ %.2f\n", bonus);
 	   }
 	}
 }
