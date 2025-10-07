@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Empresa {
 	public static void main(String[] args) {
@@ -9,14 +10,37 @@ public class Empresa {
 	    double soma = 0;
 
 		for (int i = 0; i <10; i++) {
-		    System.out.println("Digite o nome do funcionário:");
-			nome[i] = scanner.nextLine();
+		    String nomeTemp = "";
 		    
-		    System.out.println("Digite o salário do funcionário:");
-			salario[i] = scanner.nextDouble();
-			scanner.nextLine();
-			
-			soma += salario[i];
+		    while (nomeTemp.trim().isEmpty()) {
+		            System.out.println("Digite o nome do funcionário:");
+			        nomeTemp = scanner.nextLine();
+			    
+			        if (nomeTemp.trim().isEmpty()) {
+			        System.out.println("Nome vazio.");
+			        }
+		    }
+		    
+		    nome[i] = nomeTemp;
+		    
+		    boolean salarioValido = false;
+		    
+		    while(salarioValido = false) {
+		        try {
+		            System.out.println("Digite o salário do funcionário:");
+        			salario[i] = scanner.nextDouble();
+        			scanner.nextLine();
+        			
+        			if (salario[i] > 0) {
+        			    salarioValido = true;
+        			} else {
+        			    System.out.println("Salário inválido.");
+        			}
+        			soma += salario[i];
+		        } catch (InputMismatchException e) {
+		            System.out.println("Entrada de dados inválida.");
+		        }
+		    }
 			}
 		
 		double media = soma / 10;
