@@ -32,10 +32,10 @@ public class Determinante
 	    System.out.println("\nCalculando a determinante da matriz...");
 	    float op1 = matriz[0][0]*matriz[1][1]*matriz[2][2]; 
 	    float op2 = matriz[0][1]*matriz[1][2]*matriz[2][0];
-      float op3 = matriz[0][2]*matriz[1][0]*matriz[2][1];
-      float op4 = matriz[0][2]*matriz[1][1]*matriz[2][0];
-      float op5 = matriz[0][0]*matriz[1][2]*matriz[2][1];
-      float op6 = matriz[0][1]*matriz[1][0]*matriz[2][2];
+        float op3 = matriz[0][2]*matriz[1][0]*matriz[2][1];
+        float op4 = matriz[0][2]*matriz[1][1]*matriz[2][0];
+        float op5 = matriz[0][0]*matriz[1][2]*matriz[2][1];
+        float op6 = matriz[0][1]*matriz[1][0]*matriz[2][2];
         
         float determinante = (op1 + op2 + op3) - (op4 + op5 + op6);
         System.out.println("O determinante é: " + determinante);
