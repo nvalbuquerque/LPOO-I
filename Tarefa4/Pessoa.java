@@ -19,27 +19,31 @@ public class Pessoa {
     public void imprime() {
         System.out.println("Nome: " + nome);
         System.out.println("Idade: " + idade);
-        System.out.println("Endereço: " + endereco);
+        System.out.println("Endereço: " + endereco + "\n");
     }
     
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		Pessoa[] pessoas = new Pessoa[3];
 		
-		System.out.println("Digite o nome da pessoa: ");
-		String nome = scanner.nextLine();
-		System.out.println("\nDigite a idade da pessoa: ");
-		int idade = scanner.nextInt();
-		scanner.nextLine();
-		System.out.println("\nDigite o endereço da pessoa: ");
-		String endereco = scanner.nextLine();
-		
-		Pessoa pessoa1 = new Pessoa(nome, idade, endereco);
+		for (int i = 0; i < pessoas.length; i++) {
+		    System.out.println("Digite o nome da pessoa: ");
+		    String nome = scanner.nextLine();
+		    
+		    System.out.println("Digite a idade da pessoa: ");
+		    int idade = Integer.parseInt(scanner.nextLine());
+		    
+		    System.out.println("Digite o endereço da pessoa: ");
+		    String endereco = scanner.nextLine();
+		    
+		    pessoas[i] = new Pessoa(nome, idade, endereco);
+		}
 		
 		System.out.println("\nDados inseridos:");
-		pessoa1.imprime();
-		
-		System.out.println("\nA idade de " + pessoa1.nome + " em 2026 é de " + pessoa1.fazAniversario() + ".");
-		System.out.println("\nA idade de " + pessoa1.nome + " em 2027 é de " + pessoa1.fazAniversario() + ".");
-		System.out.println("\nA idade de " + pessoa1.nome + " em 2028 é de " + pessoa1.fazAniversario() + ".");
+        for(int i = 0; i < pessoas.length; i++) {
+            pessoas[i].imprime(); 
+            int novaIdade = pessoas[i].fazAniversario(); 
+            System.out.println("A idade de " + pessoas[i].nome + " em 2026 será de " + novaIdade + ".\n");
+        }
 	}
 }
