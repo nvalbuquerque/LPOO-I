@@ -21,6 +21,10 @@ class Aluno {
         this.quantidadeDisciplinasPermitidas = quantidadeDisciplinasPermitidas;
     }
     
+    public String getNome() {
+        return nome;
+    }
+
     public void imprime() {
             System.out.println("----------------------------");
             System.out.println("Nome do aluno: " + this.nome);
@@ -67,7 +71,7 @@ class Aluno {
         }
     }
     
-    class SistemaAcademico {
+public class SistemaAcademico {
         private Aluno[] alunos;
         private int quantidadeAlunos;
         private int maximoAlunos
@@ -78,16 +82,108 @@ class Aluno {
             this.quantidadeAlunos = 0;
         }
         
-        public static void cadastrarAluno(Aluno aluno) {
+        public static void inicializarSistema (int maximo, int quantidade) {
+            if (maximo <= 0 || quantidade <= 0) {
+                System.out.println("Os valores inseridos devem ser maiores que 0.");
+                return;
+            }
             
+            if (maximo < quantidade) {
+                System.out.println("A quantidade de alunos a serem cadastrados é maior do que o máximo estipulado.");
+                return;
+            }
+            
+            maximoAlunos = maximo;
+            alunos = new Aluno[maximoAlunos];
+            quantidadeAlunos = 0;
+            
+            for (int i = 0; i < quantidade; i++) {
+                System.out.println("Cadastrando o aluno " + (i+1) + " de " + quantidade + ":");
+                cadastrarAluno();
+            }
+        }
+        
+        public static void cadastrarAluno() {
+            if (quantidadeAlunos >= maximoAlunos) {
+                System.out.println("Limite máximo de alunos atingido.");
+                return;
+            }
+            
+            Scanner scanner = new Scanner(System.in);	
+    		System.out.println("Cadastrar aluno:");
+    		
+    		System.out.println("Nome:");
+    		String nome = scanner.nextLine();
+    		
+    		System.out.println("Matrícula:");
+    		String matricula = scanner.nextLine();
+    		
+    		System.out.println("Curso:");
+    		String curso = scanner.nextLine();
+    		
+    		System.out.println("Período:");
+    		int periodo = scanner.nextInt();
+    		scanner.nextLine();
+    		
+    		System.out.println("Idade:");
+    		int idade = scanner.nextInt();
+    		scanner.nextLine();
+    		
+    		System.out.println("Endereço:");
+    		String endereco = scanner.nextLine();
+    		
+    		System.out.println("Quantidade de disciplinas permitidas:");
+    		int quantidadeDisciplinasPermitidas = scanner.nextInt();
+    		scanner.nextLine();
+    		
+    		Aluno novoAluno = new Aluno(nome, matricula, curso, periodo, idade, endereco, quantidadeDisciplinasPermitidas);
+    		alunos[quantidadeAlunos] = novoAluno;
+    		quantidadeAlunos++;
+    		
+    		System.out.println("Aluno cadastrado com sucesso!");
         }
 
-        public static void excluirAlunoPorNome(String  nomeAluno) {
+        public static void excluirAlunoPorNome(String nomeAluno) {
+            if (quantidadeAlunos == 0) {
+                System.out.println("Não há alunos cadastrados no sistema.");
+                return;
+            }
             
+            int indice = -1;
+
+            for (int i = 0; i < quantidadeAlunos; i++) {
+                if (alunos[i].getNome().equalsIgnoreCase(nomeAluno)) {
+                    indice = i;
+                    break;
+                }
+            }
+            
+            if (indice == -1) {
+                System.out.println("Não há aluno cadastrado com esse nome.");
+                return;
+            }
+            
+            for (int i = indice; i < quantidadeAlunos-1; i++) {
+                alunos[i] = alunos[i+1];
+            }
+            
+            alunos[quantidadeAlunos - 1] = null;
+            quantidadeAlunos--;
+            
+            System.out.println("Exclusão do aluno feita com sucesso!");
         }
 
-        public static Aluno[] listaAlunos() {
+        public static void Aluno[] listaAlunos() {
+            if (quantidadeAlunos == 0) {
+                System.out.println("Não há alunos cadastrados no sistema.");
+                return;
+            }
             
+            System.out.println("Lista de alunos cadastrados:")
+            for (int i = 0; i < quantidadeAlunos; i++) {
+                System.out.println("Aluno " + (i+1) + ":");
+                alunos[i].imprime();
+            }
         }
 
         public static String matricularAlunoEmDisciplina(Aluno aluno, String disciplina) {
@@ -95,78 +191,43 @@ class Aluno {
         }
         
         public static String cancelarMatricula(Aluno aluno, String disciplina) {
+
+        }
+        
+        public static void imprimirListaDeAlunoseDisciplinas() {
+
+        }
+        
+        public static void main(String[] args) {
+            System.out.println("Menu sistema acadêmico");
+            System.out.println("1 - Cadastrar aluno");
+            System.out.println("2 - Excluir aluno por nome");
+            System.out.println("3 - Listar alunos");
+            System.out.println("4 - Matricular aluno");
+            System.out.println("5 - Cancelar matrícula");
+            System.out.println("6 - Imprimir lista de alunos e disciplinas matriculadas");
+            System.out.println("Escolha a desejada:");
             
-        }
-        
-        public static String imprimirListaDeAlunoseDisciplinas() {
+            int op = 0;
             
+            Scanner scanner = new Scanner(System.in);
+            int op = scanner.nextInt();
+            
+            switch (op) {
+                case (1):
+                    break;
+                case (2):
+                    break;
+                case (3):
+                    break;
+                case (4):
+                    break;
+                case (5):
+                    break;
+                case (6): 
+                    break;
+            }
+
+
         }
-        
-        System.out.println("Menu sistema acadêmico");
-        System.out.println("1 - Cadastrar aluno");
-        System.out.println("2 - Excluir aluno por nome");
-        System.out.println("3 - Listar alunos");
-        System.out.println("4 - Matricular aluno");
-        System.out.println("5 - Cancelar matrícula");
-        System.out.println("6 - Imprimir lista de alunos e disciplinas matriculadas");
-        System.out.println("Escolha a desejada:");
-        
-        int op = 0;
-        
-        Scanner scanner = new Scanner(System.in);
-        int op = scanner.nextInt();
-        
-        switch (op) {
-            case (1):
-                break;
-            case (2):
-                break;
-            case (3):
-                break;
-            case (4):
-                break;
-            case (5):
-                break;
-            case (6): 
-                break;
-        }
-
-
-    }
-
-public class OperaMatricula {
-	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);	
-		System.out.println("Cadastrar aluno:");
-		
-		System.out.println("Nome:");
-		String nome = scanner.nextLine();
-		
-		System.out.println("Matrícula:");
-		String matricula = scanner.nextLine();
-		
-		System.out.println("Curso:");
-		String curso = scanner.nextLine();
-		
-		System.out.println("Período:");
-		int periodo = scanner.nextInt();
-		scanner.nextLine();
-		
-		System.out.println("Idade:");
-		int idade = scanner.nextInt();
-		scanner.nextLine();
-		
-		System.out.println("Endereço:");
-		String endereco = scanner.nextLine();
-		
-		System.out.println("Quantidade de disciplinas permitidas:");
-		int quantidadeDisciplinasPermitidas = scanner.nextInt();
-		scanner.nextLine();
-		
-		Aluno A1 = new Aluno(nome, matricula, curso, periodo, idade, endereco, quantidadeDisciplinasPermitidas);
-		
-		A1.imprime();
-		
-		A1.fazMatricula();
-	}
 }
