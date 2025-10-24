@@ -63,11 +63,11 @@ public class Aluno {
         } 
     }
     
-    public String cancelarMatricula (String disciplina) {
-        for (String elemento : disciplinasMatriculadas) {
+    public String cancelarMatriculaAluno (String disciplina) {
             int indice = -1;
-            for(int i = 0; i < quantidadeDisciplinasPermitidas; i++) {
-                if (disciplinasMatriculadas[i].equalsIgnoreCase(disciplina)) {
+
+            for(int i = 0; i < contadorDisciplinasMatriculadas; i++) {
+                if (this.disciplinasMatriculadas[i] != null && disciplinasMatriculadas[i].equalsIgnoreCase(disciplina)) {
                     indice = i;
                     break;
                 }
@@ -77,14 +77,15 @@ public class Aluno {
                 return "O aluno não está matriculado na " + disciplina + " , portanto, não é possível cancelar esta matrícula";
             }
             
-            for (int i = indice; i < quantidadeDisciplinasPermitidas - 1; i++) {
+            for (int i = indice; i < contadorDisciplinasMatriculadas - 1; i++) {
                 disciplinasMatriculadas[i] = disciplinasMatriculadas[i+1];
             }
             
-            disciplinasMatriculadas[quantidadeDisciplinasPermitidas - 1] = null;
-            quantidadeDisciplinasPermitidas--;
-        }
-        return "Cancelamento da matrícula da disciplina " + disciplina + " executado com sucesso.";
+            disciplinasMatriculadas[contadorDisciplinasMatriculadas - 1] = null;
+            contadorDisciplinasMatriculadas--;
+            
+            return "Cancelamento da matrícula da disciplina " + disciplina + " executado com sucesso.";
     }
 }
+
     
