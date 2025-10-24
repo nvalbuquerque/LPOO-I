@@ -36,7 +36,18 @@ public class Aluno {
             System.out.println("Matricula: " + this.matricula);
             System.out.println("Curso: " + this.curso);
             System.out.println("Período: " + this.periodo);
-            System.out.println("Disciplinas matriculadas: " + this.disciplinasMatriculadas);
+            if (this.contadorDisciplinasMatriculadas == 0) {
+                System.out.println("Disciplinas matriculadas: Nenhuma disciplina matriculada.");
+            } else {
+                System.out.print("Disciplinas matriculadas: ");
+                for (int i = 0; i < this.contadorDisciplinasMatriculadas; i++) {
+                    System.out.print(this.disciplinasMatriculadas[i]);
+                    if (i < this.contadorDisciplinasMatriculadas - 1) {
+                        System.out.print(", ");
+                    }
+                }
+                System.out.println();
+            }
             System.out.println("----------------------------");
     }
     
