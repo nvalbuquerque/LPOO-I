@@ -1,0 +1,3 @@
+No método public tudo executa normalmente.
+No método protected o UsaPonto3D consegue acessar os métodos do Ponto3D por estarem no mesmo pacote (no caso, os códigos estão sendo rodados no Terminal, então estão sendo rodados no pacote default)
+No método private o UsaPonto3D não chega a compilar pois não consegue acessar os métodos de Ponto3D.
