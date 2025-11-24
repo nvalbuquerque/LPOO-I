@@ -8,6 +8,7 @@ public class Media
 		int soma = 0;
 
 		Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite S se quiser para e fazer a média dos números!");
 
 		while (!op.equals("S")) {
 		System.out.println("Digite valores inteiros ou reais:");

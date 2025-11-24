@@ -15,14 +15,18 @@ public class Fibonacci
         }
 	    
 	    int a = 0;
-	    int b = 1; 
-	    
+	    int b = 1;
+
+        System.out.println("Sequência de Fibonacci até passar de " + num + ": ");
+
 	    while (a <= num) {
+            System.out.print(a + " ");
             int proximo = a + b;
             a = b;
             b = proximo;
         }
-	    
+
+        System.out.println(a);
 	    System.out.printf("O número %d da sequência de Fibonacci é maior que o número inserido %d.", a, num);
 	}
 }
